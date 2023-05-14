@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //获取设备列表
+      navigator.mediaDevices.enumerateDevices().then((devices) => {
+        devices.forEach(function (device) {
+          console.log(
+            device.kind + ": " + device.label + " id = " + device.deviceId
+          );
+        });
+      });
+      //定义设备参数，deviceId 是通过 navigator.mediaDevices.enumerateDevices 获取到的
+      var constraints = {
+        audio: false,
+        video: {
+          width: 1920,
+          height: 1080,
+          deviceId:
+            "3ac2c7ced105773790f6ce126b7a90453b66c2d5f4a63852e6990d2bcd196792",
+        },
+      };
+
+      //调用摄像头
+      navigator.mediaDevices
+        .getUserMedia(constraints)
+        .then(function (mediaStream) {
+          var video = document.querySelector("video");
+          video.srcObject = mediaStream;
+          video.onloadedmetadata = function (e) {
+            video.play();
+          };
+        })
+        .catch(function (err) {
+          console.log(err.name + ": " + err.message);
+        });
+    </script>
+  </body>
+</html>

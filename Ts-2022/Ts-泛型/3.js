@@ -1,5 +1,5 @@
 "use strict";
-//使用泛型在类当中
+//泛型在类使用
 {
     class User {
         constructor() {
@@ -31,8 +31,8 @@
     }
     let hd = new User();
     let hdS = new User();
-    hd.collect(1, 2, 3, 4, 5, 6);
+    hd.collect("asd", 1, 2, 3, 4, 5, 6);
     hdS.collect("as", "asas");
-    console.log(hd.shift()); //1
+    console.log(hd.shift()); //as
     console.log(hdS.shift()); //as
 }

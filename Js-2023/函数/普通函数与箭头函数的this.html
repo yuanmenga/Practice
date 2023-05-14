@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var id = "GLOBAL";
+      // var obj = {
+      //   id: "OBJ",
+      //   a: function () {
+      //     console.log(this.id);
+      //   },
+      //   b: () => {
+      //     console.log(this.id);
+      //   },
+      // };
+      // obj.a(); // 'OBJ'
+      // obj.b(); // 'GLOBAL'
+      // new obj.a(); // undefined
+      // new obj.b(); //报错
+    </script>
+
+    <script>
+      const hd = ["houdunren", "hdcms"];
+      const values = hd.values();
+      console.log(values);
+      for (const iterator of values) {
+        console.log(iterator);
+      }
+    </script>
+
+    <script>
+      // ES6
+      // const obj = {
+      //   getArrow() {
+      //     return () => {
+      //       console.log(this === obj);
+      //     };
+      //   },
+      // };
+      // // ES5，由 Babel 转译
+      // var obj = {
+      //   getArrow: function getArrow() {
+      //     var _this = this;
+      //     return function () {
+      //       console.log(_this === obj);
+      //     };
+      //   },
+      // };
+    </script>
+  </body>
+</html>

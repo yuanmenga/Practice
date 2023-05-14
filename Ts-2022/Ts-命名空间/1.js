@@ -9,6 +9,6 @@ var hd;
 (function (hd) {
     name: "asd";
 })(hd || (hd = {}));
-// console.log(hd.name);报错
+// console.log(hd.name);报错，读取命名空间的内容必须使用export导出
 console.log(usera.name);
 console.log(usera.hd);

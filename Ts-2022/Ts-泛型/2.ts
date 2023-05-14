@@ -2,12 +2,12 @@
 //泛型就是动态的传递数据类型
 
 // {
-//   如果不给T传递数据类型或者继承，<T>相当于type T={}
+//   //  如果不给T传递数据类型或者继承，<T>相当于type T={}
 //   //下面我们要用到泛型的继承
 //   function hds<T extends string>(name: T) {
 //     return name.length; //继承之后T具有的所有string的属性
 //   }
-//   console.log(hds<string>("后盾人")); //3
+//   // console.log(hds<string>("后盾人")); //3
 //   console.log(hds(2)); //因为number类型没有length属性，所有有了下面的联合继承
 // }
 
