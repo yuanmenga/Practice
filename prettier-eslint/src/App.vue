@@ -1,6 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-console.log(1 === 2)
+console.log(1 == 2)
 </script>
 
 <template>
