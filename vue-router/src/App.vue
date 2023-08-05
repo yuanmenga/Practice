@@ -1,9 +1,10 @@
 <template>
   <div>鼠标位置{{ Mouse.x.value }},{{ Mouse.y.value }}</div>
-  <div>12</div>
+  <router-view></router-view>
 </template>
 <script setup lang="ts">
 import Mouse from "./composables/mouseEvent";
+
 import { onMounted, onUnmounted } from "vue";
 
 onMounted(() => window.addEventListener("mousemove", Mouse.update));

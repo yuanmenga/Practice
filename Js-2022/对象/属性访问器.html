@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 26集访问器语法
+      // 为什么出现访问器，先看看如果没有访问器对象如何动态设置属性
+      const hd = {
+        data: { name: "lisi", age: 20 },
+        setName(names, value) {
+          if (typeof value != "number" && value < 0) {
+            throw 1;
+          }
+          this.data[names] = value;
+        },
+        getName(value) {
+          return this.data[value];
+        },
+      };
+      hd.setName("name", "张三");
+      console.log(hd.getName("name"));
+      //出现访问器后语法更加简洁
+      const hdcms = {
+        data: { name: "lisi", age: 20 },
+        set name(value) {
+          if (typeof value != "number" && value < 0) {
+            throw new Error("不合法");
+          }
+          this.data.name = value;
+        },
+        get name() {
+          return this.data.name;
+        },
+      };
+      hdcms.name = "历史";
+      console.log(hdcms.name, 12);
+
+      //30集访问器的优先级
+      const hdcmss = {
+        name: "lisi",
+        age: 12,
+        set name(value) {
+          console.log(value);
+          console.log("访问器优先级更高,所以没有name属性");
+        },
+        get name() {
+          return this.name;
+        },
+      };
+      hdcmss.name = "历史";
+      console.log(hdcmss, 123);
+    </script>
+  </body>
+</html>

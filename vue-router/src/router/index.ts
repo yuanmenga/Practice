@@ -1,16 +1,13 @@
-import VueRouter from "vue-router";
-const Home = { template: "<div>Home</div>" };
-const About = { template: "<div>About</div>" };
+import { App } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes";
 
-const routes = [
-  { path: "/", component: Home },
-  { path: "/about", component: About },
-];
-
-const router = VueRouter.createRouter({
-  // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
-  history: VueRouter.createWebHashHistory(),
-  routes, // `routes: routes` 的缩写
+const router = createRouter({
+  history: createWebHistory(),
+  routes: routes,
 });
 
-app.use(router);
+export async function useRouters(app: App) {
+  app.use(router);
+}
+export default router;

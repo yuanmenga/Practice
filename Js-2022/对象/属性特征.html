@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 21集课程查看特征
+      "use strict";
+      const user = {
+        name: "向军",
+        age: 18,
+      };
+
+      let a = Object.getOwnPropertyDescriptor(user, "name"); //获取单个属性描述
+      let all = Object.getOwnPropertyDescriptors(user); //获取全部属性描述
+      //   console.log(JSON.stringify(a, null, 2));
+      //   console.log(JSON.stringify(all, null, 2));
+
+      // 22集课程设置特征
+      // 对对象的属性进行设置，如果没有改属性则新增
+      Object.defineProperty(user, "name", {
+        writable: false, //可修改
+        enumerable: true, //可遍历
+        configurable: true, //可配置
+      });
+      // 一次配置多个
+      Object.defineProperties(user, {
+        name: { writable: true },
+        age: { writable: true },
+      });
+      for (const key in user) {
+        console.log(key);
+      }
+
+      // 23集课程禁止向对象添加属性
+      let hd = {
+        name: "hd",
+      };
+      Object.preventExtensions(hd); //禁止向对象添加任何属性
+      if (Object.isExtensible(hd)) {
+        hd.age = 21;
+        console.log(hd, 1);
+      }
+
+      // 24集课程封闭一个对象
+      let hds = {
+        name: "hds",
+      };
+      Object.seal(hds); //封闭一个对象，阻止添加新属性并将 configurable: false
+      if (Object.isSealed(hds)) {
+        hds.name = 21;
+        console.log(
+          JSON.stringify(Object.getOwnPropertyDescriptors(hds), null, 2)
+        );
+      }
+
+      // 25集课程冻结一个对象
+      let hdss = {
+        name: "hdss",
+      };
+      Object.freeze(hdss); //冻结对象后不允许添加、删除、修改属性，writable、configurable 都标记为false
+      if (Object.isFrozen(hdss)) {
+        console.log(
+          JSON.stringify(Object.getOwnPropertyDescriptors(hdss), null, 2)
+        );
+      }
+      Object;
+    </script>
+  </body>
+</html>
